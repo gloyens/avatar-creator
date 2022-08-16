@@ -4,25 +4,25 @@ let cwd = window.location.pathname.substring(0, window.location.pathname.lastInd
 let baseNum = 1;
 let trimNum = 1;
 
+// Create images
+let base = document.createElement("img");
+let trim = document.createElement("img");
+
 window.onload = () => { // This is an arrow function, rewritten from "window.onload = function() {"
-  var base = document.createElement("img");
-  //var baseNum = Math.floor(Math.random() * 6) + 1; // Multiply Math.random() by number of files
-    
   base.src = cwd + "/img/base" + baseNum + ".png";
-  base.onload = () => { buildAvatar(base); }
+  base.onload = () => { buildAvatar(); }
 }
 
-function buildAvatar(layer) {
+function buildAvatar() {
   var canvas = document.getElementById("canvas");
   var ctx = canvas.getContext("2d");
   canvas.height = canvas.width;
 
-  ctx.drawImage(layer, 0, 0, canvas.width, canvas.height);
+  ctx.drawImage(base, 0, 0, canvas.width, canvas.height);
+  ctx.drawImage(trim, 0, 0, canvas.width, canvas.height);
 }
 
 function baseChange(direction) {
-  var base = document.createElement("img");
-
   switch(direction) {
     case "previous":
       if (baseNum == 1) { baseNum = 6; }
@@ -35,12 +35,10 @@ function baseChange(direction) {
   }
 
   base.src = cwd + "/img/base" + baseNum + ".png";
-  base.onload = () => { buildAvatar(base); }
+  base.onload = () => { buildAvatar(); }
 }
 
 function trimChange(direction) {
-  var trim = document.createElement("img");
-
   switch(direction) {
     case "previous":
       if (trimNum == 1) { trimNum = 4; }
@@ -53,5 +51,5 @@ function trimChange(direction) {
   }
 
   trim.src = cwd + "/img/trim" + trimNum + ".png";
-  trim.onload = () => { buildAvatar(trim); }
+  trim.onload = () => { buildAvatar(); }
 }

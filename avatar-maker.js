@@ -2,6 +2,7 @@ let cwd = window.location.pathname.substring(0, window.location.pathname.lastInd
 
 // Reference number for each image, e.g. base1.png
 let baseNum = 1;
+let trimNum = 1;
 
 window.onload = () => { // This is an arrow function, rewritten from "window.onload = function() {"
   var base = document.createElement("img");
@@ -37,3 +38,20 @@ function baseChange(direction) {
   base.onload = () => { buildAvatar(base); }
 }
 
+function trimChange(direction) {
+  var trim = document.createElement("img");
+
+  switch(direction) {
+    case "previous":
+      if (trimNum == 1) { trimNum = 4; }
+      else { trimNum -= 1; };
+      break;
+    case "next":
+      if (trimNum == 4) { trimNum = 1; }
+      else { trimNum += 1; }
+      break;
+  }
+
+  trim.src = cwd + "/img/trim" + trimNum + ".png";
+  trim.onload = () => { buildAvatar(trim); }
+}

@@ -2,11 +2,12 @@ let cwd = window.location.pathname.substring(0, window.location.pathname.lastInd
 
 // Reference number for each image, e.g. base1.png
 let baseNum = 1;
-let trimNum = 1;
+let hairNum = 1;
+let hairColourNum = 1;
 
 // Create images
 let base = document.createElement("img");
-let trim = document.createElement("img");
+let hair = document.createElement("img");
 
 window.onload = () => { // This is an arrow function, rewritten from "window.onload = function() {"
   base.src = cwd + "/img/base" + baseNum + ".png";
@@ -19,17 +20,17 @@ function buildAvatar() {
   canvas.height = canvas.width;
 
   ctx.drawImage(base, 0, 0, canvas.width, canvas.height);
-  ctx.drawImage(trim, 0, 0, canvas.width, canvas.height);
+  ctx.drawImage(hair, 1, 0, canvas.width, canvas.height);
 }
 
 function baseChange(direction) {
   switch(direction) {
     case "previous":
-      if (baseNum == 1) { baseNum = 6; }
+      if (baseNum == 1) { baseNum = 10; }
       else { baseNum -= 1; };
       break;
     case "next":
-      if (baseNum == 6) { baseNum = 1; }
+      if (baseNum == 10) { baseNum = 1; }
       else { baseNum += 1; }
       break;
   }
@@ -38,18 +39,18 @@ function baseChange(direction) {
   base.onload = () => { buildAvatar(); }
 }
 
-function trimChange(direction) {
+function hairColourChange(direction) {
   switch(direction) {
     case "previous":
-      if (trimNum == 1) { trimNum = 4; }
-      else { trimNum -= 1; };
+      if (hairColourNum == 1) { trimhairColourNumNum = 5; }
+      else { hairColourNum -= 1; };
       break;
     case "next":
-      if (trimNum == 4) { trimNum = 1; }
-      else { trimNum += 1; }
+      if (hairColourNum == 5) { hairColourNum = 1; }
+      else { hairColourNum += 1; }
       break;
   }
 
-  trim.src = cwd + "/img/trim" + trimNum + ".png";
-  trim.onload = () => { buildAvatar(); }
+  hair.src = cwd + "/img/hair" + hairNum + "-" + hairColourNum + ".png";
+  hair.onload = () => { buildAvatar(); }
 }

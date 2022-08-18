@@ -7,6 +7,7 @@ let hairColourNum = 1;
 let eyebrowsNum = 1;
 let eyesNum = 1;
 let noseNum = 1;
+let cheeksNum = 1;
 let mouthNum = 1;
 let bodyNum = 1;
 
@@ -16,6 +17,7 @@ let hair = document.createElement("img");
 let eyebrows = document.createElement("img");
 let eyes = document.createElement("img");
 let nose = document.createElement("img");
+let cheeks = document.createElement("img");
 let mouth = document.createElement("img");
 let body = document.createElement("img");
 
@@ -35,6 +37,9 @@ window.onload = () => { // This is an arrow function, rewritten from "window.onl
   nose.src = cwd + "/img/nose" + noseNum + "-" + baseNum + ".png";
   nose.onload = () => { buildAvatar(); }
 
+  cheeks.src = cwd + "/img/cheeks" + cheeksNum + "-" + baseNum + ".png";
+  cheeks.onload = () => { buildAvatar(); }
+
   mouth.src = cwd + "/img/mouth" + mouthNum + ".png";
   mouth.onload = () => { buildAvatar(); }
 
@@ -50,6 +55,7 @@ function buildAvatar() {
   ctx.drawImage(base, 0, 0, canvas.width, canvas.height);
   ctx.drawImage(hair, 0, 0, canvas.width, canvas.height);
   ctx.drawImage(eyebrows, 0, 0, canvas.width, canvas.height);
+  ctx.drawImage(cheeks, 0, 0, canvas.width, canvas.height);
   ctx.drawImage(eyes, 0, 0, canvas.width, canvas.height);
   ctx.drawImage(nose, 0, 0, canvas.width, canvas.height);
   ctx.drawImage(mouth, 0, 0, canvas.width, canvas.height);
@@ -70,6 +76,7 @@ function baseChange(direction) {
 
   base.src = cwd + "/img/base" + baseNum + ".png";
   nose.src = cwd + "/img/nose" + noseNum + "-" + baseNum + ".png";
+  cheeks.src = cwd + "/img/cheeks" + cheeksNum + "-" + baseNum + ".png";
   base.onload = () => { buildAvatar(); }
 }
 
@@ -124,11 +131,11 @@ function eyebrowsChange(direction) {
 function eyesChange(direction) {
   switch(direction) {
     case "previous":
-      if (eyesNum == 1) { eyesNum = 3; }
+      if (eyesNum == 1) { eyesNum = 7; }
       else { eyesNum -= 1; };
       break;
     case "next":
-      if (eyesNum == 3) { eyesNum = 1; }
+      if (eyesNum == 7) { eyesNum = 1; }
       else { eyesNum += 1; }
       break;
   }
@@ -151,6 +158,22 @@ function noseChange(direction) {
 
   nose.src = cwd + "/img/nose" + noseNum + "-" + baseNum + ".png";
   nose.onload = () => { buildAvatar(); }
+}
+
+function cheeksChange(direction) {
+  switch(direction) {
+    case "previous":
+      if (cheeksNum == 1) { cheeksNum = 4; }
+      else { cheeksNum -= 1; };
+      break;
+    case "next":
+      if (cheeksNum == 4) { cheeksNum = 1; }
+      else { cheeksNum += 1; }
+      break;
+  }
+
+  cheeks.src = cwd + "/img/cheeks" + cheeksNum + "-" + baseNum + ".png";
+  cheeks.onload = () => { buildAvatar(); }
 }
 
 function mouthChange(direction) {

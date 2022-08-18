@@ -4,12 +4,20 @@ let cwd = window.location.pathname.substring(0, window.location.pathname.lastInd
 let baseNum = 1;
 let hairNum = 1;
 let hairColourNum = 1;
+let eyebrowsNum = 1;
 let eyesNum = 1;
+let noseNum = 1;
+let mouthNum = 1;
+let bodyNum = 1;
 
 // Create images
 let base = document.createElement("img");
 let hair = document.createElement("img");
+let eyebrows = document.createElement("img");
 let eyes = document.createElement("img");
+let nose = document.createElement("img");
+let mouth = document.createElement("img");
+let body = document.createElement("img");
 
 window.onload = () => { // This is an arrow function, rewritten from "window.onload = function() {"
   base.src = cwd + "/img/base" + baseNum + ".png";
@@ -18,8 +26,20 @@ window.onload = () => { // This is an arrow function, rewritten from "window.onl
   hair.src = cwd + "/img/hair" + hairNum + "-" + hairColourNum + ".png";
   hair.onload = () => { buildAvatar(); }
 
+  eyebrows.src = cwd + "/img/eyebrows" + eyebrowsNum + ".png";
+  eyebrows.onload = () => { buildAvatar(); }
+
   eyes.src = cwd + "/img/eyes" + eyesNum + ".png";
   eyes.onload = () => { buildAvatar(); }
+
+  nose.src = cwd + "/img/nose" + noseNum + "-" + baseNum + ".png";
+  nose.onload = () => { buildAvatar(); }
+
+  mouth.src = cwd + "/img/mouth" + mouthNum + ".png";
+  mouth.onload = () => { buildAvatar(); }
+
+  body.src = cwd + "/img/body" + bodyNum + ".png";
+  body.onload = () => { buildAvatar(); }
 }
 
 function buildAvatar() {
@@ -29,7 +49,11 @@ function buildAvatar() {
 
   ctx.drawImage(base, 0, 0, canvas.width, canvas.height);
   ctx.drawImage(hair, 0, 0, canvas.width, canvas.height);
+  ctx.drawImage(eyebrows, 0, 0, canvas.width, canvas.height);
   ctx.drawImage(eyes, 0, 0, canvas.width, canvas.height);
+  ctx.drawImage(nose, 0, 0, canvas.width, canvas.height);
+  ctx.drawImage(mouth, 0, 0, canvas.width, canvas.height);
+  ctx.drawImage(body, 0, 0, canvas.width, canvas.height);
 }
 
 function baseChange(direction) {
@@ -45,6 +69,7 @@ function baseChange(direction) {
   }
 
   base.src = cwd + "/img/base" + baseNum + ".png";
+  nose.src = cwd + "/img/nose" + noseNum + "-" + baseNum + ".png";
   base.onload = () => { buildAvatar(); }
 }
 
@@ -67,7 +92,7 @@ function hairChange(direction) {
 function hairColourChange(direction) {
   switch(direction) {
     case "previous":
-      if (hairColourNum == 1) { hairColourNumNum = 5; }
+      if (hairColourNum == 1) { hairColourNum = 5; }
       else { hairColourNum -= 1; };
       break;
     case "next":
@@ -78,6 +103,22 @@ function hairColourChange(direction) {
 
   hair.src = cwd + "/img/hair" + hairNum + "-" + hairColourNum + ".png";
   hair.onload = () => { buildAvatar(); }
+}
+
+function eyebrowsChange(direction) {
+  switch(direction) {
+    case "previous":
+      if (eyebrowsNum == 1) { eyebrowsNum = 3; }
+      else { eyebrowsNum -= 1; };
+      break;
+    case "next":
+      if (eyebrowsNum == 3) { eyebrowsNum = 1; }
+      else { eyebrowsNum += 1; }
+      break;
+  }
+
+  eyebrows.src = cwd + "/img/eyebrows" + eyebrowsNum + ".png";
+  eyebrows.onload = () => { buildAvatar(); }
 }
 
 function eyesChange(direction) {
@@ -94,4 +135,52 @@ function eyesChange(direction) {
 
   eyes.src = cwd + "/img/eyes" + eyesNum + ".png";
   eyes.onload = () => { buildAvatar(); }
+}
+
+function noseChange(direction) {
+  switch(direction) {
+    case "previous":
+      if (noseNum == 1) { noseNum = 1; }
+      else { noseNum -= 1; };
+      break;
+    case "next":
+      if (noseNum == 1) { noseNum = 1; }
+      else { noseNum += 1; }
+      break;
+  }
+
+  nose.src = cwd + "/img/nose" + noseNum + "-" + baseNum + ".png";
+  nose.onload = () => { buildAvatar(); }
+}
+
+function mouthChange(direction) {
+  switch(direction) {
+    case "previous":
+      if (mouthNum == 1) { mouthNum = 3; }
+      else { mouthNum -= 1; };
+      break;
+    case "next":
+      if (mouthNum == 3) { mouthNum = 1; }
+      else { mouthNum += 1; }
+      break;
+  }
+
+  mouth.src = cwd + "/img/mouth" + mouthNum + ".png";
+  mouth.onload = () => { buildAvatar(); }
+}
+
+function bodyChange(direction) {
+  switch(direction) {
+    case "previous":
+      if (bodyNum == 1) { bodyNum = 7; }
+      else { bodyNum -= 1; };
+      break;
+    case "next":
+      if (bodyNum == 7) { bodyNum = 1; }
+      else { bodyNum += 1; }
+      break;
+  }
+
+  body.src = cwd + "/img/body" + bodyNum + ".png";
+  body.onload = () => { buildAvatar(); }
 }

@@ -53,9 +53,9 @@ function buildAvatar() {
   canvas.height = canvas.width;
 
   ctx.drawImage(base, 0, 0, canvas.width, canvas.height);
+  ctx.drawImage(cheeks, 0, 0, canvas.width, canvas.height);
   ctx.drawImage(hair, 0, 0, canvas.width, canvas.height);
   ctx.drawImage(eyebrows, 0, 0, canvas.width, canvas.height);
-  ctx.drawImage(cheeks, 0, 0, canvas.width, canvas.height);
   ctx.drawImage(eyes, 0, 0, canvas.width, canvas.height);
   ctx.drawImage(nose, 0, 0, canvas.width, canvas.height);
   ctx.drawImage(mouth, 0, 0, canvas.width, canvas.height);
@@ -83,11 +83,11 @@ function baseChange(direction) {
 function hairChange(direction) {
   switch(direction) {
     case "previous":
-      if (hairNum == 1) { hairNum = 2; }
+      if (hairNum == 1) { hairNum = 7; }
       else { hairNum -= 1; };
       break;
     case "next":
-      if (hairNum == 2) { hairNum = 1; }
+      if (hairNum == 7) { hairNum = 1; }
       else { hairNum += 1; }
       break;
   }
@@ -115,11 +115,11 @@ function hairColourChange(direction) {
 function eyebrowsChange(direction) {
   switch(direction) {
     case "previous":
-      if (eyebrowsNum == 1) { eyebrowsNum = 3; }
+      if (eyebrowsNum == 1) { eyebrowsNum = 10; }
       else { eyebrowsNum -= 1; };
       break;
     case "next":
-      if (eyebrowsNum == 3) { eyebrowsNum = 1; }
+      if (eyebrowsNum == 10) { eyebrowsNum = 1; }
       else { eyebrowsNum += 1; }
       break;
   }
@@ -131,11 +131,11 @@ function eyebrowsChange(direction) {
 function eyesChange(direction) {
   switch(direction) {
     case "previous":
-      if (eyesNum == 1) { eyesNum = 7; }
+      if (eyesNum == 1) { eyesNum = 10; }
       else { eyesNum -= 1; };
       break;
     case "next":
-      if (eyesNum == 7) { eyesNum = 1; }
+      if (eyesNum == 10) { eyesNum = 1; }
       else { eyesNum += 1; }
       break;
   }
@@ -147,11 +147,11 @@ function eyesChange(direction) {
 function noseChange(direction) {
   switch(direction) {
     case "previous":
-      if (noseNum == 1) { noseNum = 1; }
+      if (noseNum == 1) { noseNum = 4; }
       else { noseNum -= 1; };
       break;
     case "next":
-      if (noseNum == 1) { noseNum = 1; }
+      if (noseNum == 4) { noseNum = 1; }
       else { noseNum += 1; }
       break;
   }
@@ -179,11 +179,11 @@ function cheeksChange(direction) {
 function mouthChange(direction) {
   switch(direction) {
     case "previous":
-      if (mouthNum == 1) { mouthNum = 3; }
+      if (mouthNum == 1) { mouthNum = 10; }
       else { mouthNum -= 1; };
       break;
     case "next":
-      if (mouthNum == 3) { mouthNum = 1; }
+      if (mouthNum == 10) { mouthNum = 1; }
       else { mouthNum += 1; }
       break;
   }

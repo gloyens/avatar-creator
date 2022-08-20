@@ -7,7 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link rel="stylesheet" href="stylesheet.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Krona+One">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mitr">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
 <script type="text/javascript" src="avatar-maker.js"></script>
 </head>
@@ -24,44 +26,59 @@
     </div>
   
     <div id="option-container" class="flex-item">
-      <p>
-		<button onclick="baseChange('previous')">&lt;</button>
-		Base
-	    <button onclick="baseChange('next')">&gt;</button>
-	    <br>
-        <button onclick="hairChange('previous')">&lt;</button>
-		Hair
-	    <button onclick="hairChange('next')">&gt;</button>
-		<br>
-        <button onclick="hairColourChange('previous')">&lt;</button>
-		Hair Colour
-	    <button onclick="hairColourChange('next')">&gt;</button>
-		<br>
-        <button onclick="eyebrowsChange('previous')">&lt;</button>
-		Eyebrows
-	    <button onclick="eyebrowsChange('next')">&gt;</button>
-		<br>
-        <button onclick="eyesChange('previous')">&lt;</button>
-		Eyes
-	    <button onclick="eyesChange('next')">&gt;</button>
-		<br>
-        <button onclick="noseChange('previous')">&lt;</button>
-		Nose
-	    <button onclick="noseChange('next')">&gt;</button>
-		<br>
-        <button onclick="cheeksChange('previous')">&lt;</button>
-		Cheeks
-	    <button onclick="cheeksChange('next')">&gt;</button>
-		<br>
-        <button onclick="mouthChange('previous')">&lt;</button>
-		Mouth
-	    <button onclick="mouthChange('next')">&gt;</button>
-		<br>
-        <button onclick="bodyChange('previous')">&lt;</button>
-		Body
-	    <button onclick="bodyChange('next')">&gt;</button>
-		<br>
-	  </p>
+		<div>
+  		  <button class="left" onclick="baseChange('previous')"><i class="fa fa-caret-left"></i></button>
+		  <span>Base</span>
+	      <button class="right" onclick="baseChange('next')"><i class="fa fa-caret-right"></i></button>
+	    </div>
+		
+		<div>
+          <button class="left" onclick="hairChange('previous')"><i class="fa fa-caret-left"></i></button>
+		  <span>Hair</span>
+	      <button class="right" onclick="hairChange('next')"><i class="fa fa-caret-right"></i></button>
+		</div>
+		
+		<div>
+          <button class="left" onclick="hairColourChange('previous')"><i class="fa fa-caret-left"></i></button>
+		  <span>Hair Colour</span>
+	      <button class="right" onclick="hairColourChange('next')"><i class="fa fa-caret-right"></i></button>
+		</div>
+		
+		<div>
+          <button class="left" onclick="eyebrowsChange('previous')"><i class="fa fa-caret-left"></i></button>
+		  <span>Eyebrows</span>
+	      <button class="right" onclick="eyebrowsChange('next')"><i class="fa fa-caret-right"></i></button>
+		</div>
+		
+		<div>
+          <button class="left" onclick="eyesChange('previous')"><i class="fa fa-caret-left"></i></button>
+		  <span>Eyes</span>
+	      <button class="right" onclick="eyesChange('next')"><i class="fa fa-caret-right"></i></button>
+		</div>
+		
+        <div>
+		  <button class="left" onclick="noseChange('previous')"><i class="fa fa-caret-left"></i></button>
+		  <span>Nose</span>
+	      <button class="right" onclick="noseChange('next')"><i class="fa fa-caret-right"></i></button>
+		</div>
+		
+		<div>
+          <button class="left" onclick="cheeksChange('previous')"><i class="fa fa-caret-left"></i></button>
+		  <span>Cheeks</span>
+	      <button class="right" onclick="cheeksChange('next')"><i class="fa fa-caret-right"></i></button>
+		</div>
+		
+		<div>
+          <button class="left" onclick="mouthChange('previous')"><i class="fa fa-caret-left"></i></button>
+		  <span>Mouth</span>
+	      <button class="right" onclick="mouthChange('next')"><i class="fa fa-caret-right"></i></button>
+		</div>
+		
+		<div>
+          <button class="left" onclick="bodyChange('previous')"><i class="fa fa-caret-left"></i></button>
+		  <span>Body</span>
+	      <button class="right" onclick="bodyChange('next')"><i class="fa fa-caret-right"></i></button>
+		</div>
     </div>
   </div>
 

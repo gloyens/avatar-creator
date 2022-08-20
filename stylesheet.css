@@ -10,8 +10,8 @@ html {
 body {
   margin: 0;
   height: 100%;
-  font-family: Verdana, Helvetica, sans-serif;
-  background-color: #ebebeb;
+  font-family: Mitr, Helvetica, sans-serif;
+  background-color: #F3F0F6;
 }
 
 img {
@@ -20,7 +20,7 @@ img {
 }
 
 h1 {
-  margin: 40px auto;
+  margin: 0 auto 40px;
   text-align: center;
 }
 
@@ -34,6 +34,25 @@ h1 {
 
 button {
   display: inline;
+  background-color: white;
+  border: none;
+  color: darkSlateGrey;
+  height: 32px;
+  width: 32px;
+  font-size: 20px;
+  text-align: center;
+  text-decoration: none;
+}
+
+button:hover {
+  background-color: #F3F0F6;
+}
+
+span
+{
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 32px;
 }
 
 /* Flexbox */
@@ -61,17 +80,49 @@ button {
   padding-bottom: 100%;*/
   
   width: 100%;
-  background-color: #ebebeb;
+  background-color: #F3F0F6;
 }
 
 #option-container {
-  flex-grow: 1;
+  display: flex;
+  flex-grow: 2;
   flex-direction: column;
+  padding: 0 20px;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
 }
 
 /* Responsive */
 
-@media only screen and (max-width: 640px) {
+
+@media only screen and (max-width: 768px) {
+  body {
+	background-color: white;
+  }
+
+  h1 {
+	display: none;
+  }
+
+  #container {
+    padding: 0;
+  }
+
+  #option-container {
+  padding: 20px 0;
+  }
+
+  button {
+	height: 48px;
+	width: 48px;
+  }
+  
   .flex-container {
     flex-direction: column;
   }

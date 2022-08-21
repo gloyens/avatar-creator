@@ -1,6 +1,7 @@
 let cwd = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/'));
 
 // Reference number for each image, e.g. base1.png
+let backgroundNum = 1;
 let baseNum = 1;
 let hairNum = 1;
 let hairColourNum = 1;
@@ -10,8 +11,10 @@ let noseNum = 1;
 let cheeksNum = 1;
 let mouthNum = 1;
 let bodyNum = 1;
+let accessoryNum = 1;
 
 // Create images
+let background = document.createElement("img");
 let base = document.createElement("img");
 let hair = document.createElement("img");
 let eyebrows = document.createElement("img");
@@ -20,8 +23,12 @@ let nose = document.createElement("img");
 let cheeks = document.createElement("img");
 let mouth = document.createElement("img");
 let body = document.createElement("img");
+let accessory = document.createElement("img");
 
 window.onload = () => { // This is an arrow function, rewritten from "window.onload = function() {"
+  background.src = cwd + "/img/background" + backgroundNum + ".png";
+  background.onload = () => { buildAvatar(); }
+
   base.src = cwd + "/img/base" + baseNum + ".png";
   base.onload = () => { buildAvatar(); }
 
@@ -45,6 +52,9 @@ window.onload = () => { // This is an arrow function, rewritten from "window.onl
 
   body.src = cwd + "/img/body" + bodyNum + ".png";
   body.onload = () => { buildAvatar(); }
+
+  accessory.src = cwd + "/img/accessory" + accessoryNum + ".png";
+  accessory.onload = () => { buildAvatar(); }
 }
 
 function buildAvatar() {
@@ -52,6 +62,7 @@ function buildAvatar() {
   var ctx = canvas.getContext("2d");
   canvas.height = canvas.width;
 
+  ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
   ctx.drawImage(base, 0, 0, canvas.width, canvas.height);
   ctx.drawImage(cheeks, 0, 0, canvas.width, canvas.height);
   ctx.drawImage(hair, 0, 0, canvas.width, canvas.height);
@@ -60,6 +71,23 @@ function buildAvatar() {
   ctx.drawImage(nose, 0, 0, canvas.width, canvas.height);
   ctx.drawImage(mouth, 0, 0, canvas.width, canvas.height);
   ctx.drawImage(body, 0, 0, canvas.width, canvas.height);
+  ctx.drawImage(accessory, 0, 0, canvas.width, canvas.height);
+}
+
+function backgroundChange(direction) {
+  switch(direction) {
+    case "previous":
+      if (backgroundNum == 1) { backgroundNum = 10; }
+      else { backgroundNum -= 1; };
+      break;
+    case "next":
+      if (backgroundNum == 10) { backgroundNum = 1; }
+      else { backgroundNum += 1; }
+      break;
+  }
+
+  background.src = cwd + "/img/background" + backgroundNum + ".png";
+  background.onload = () => { buildAvatar(); }
 }
 
 function baseChange(direction) {
@@ -83,11 +111,11 @@ function baseChange(direction) {
 function hairChange(direction) {
   switch(direction) {
     case "previous":
-      if (hairNum == 1) { hairNum = 7; }
+      if (hairNum == 1) { hairNum = 10; }
       else { hairNum -= 1; };
       break;
     case "next":
-      if (hairNum == 7) { hairNum = 1; }
+      if (hairNum == 10) { hairNum = 1; }
       else { hairNum += 1; }
       break;
   }
@@ -206,4 +234,20 @@ function bodyChange(direction) {
 
   body.src = cwd + "/img/body" + bodyNum + ".png";
   body.onload = () => { buildAvatar(); }
+}
+
+function accessoryChange(direction) {
+  switch(direction) {
+    case "previous":
+      if (accessoryNum == 1) { accessoryNum = 11; }
+      else { accessoryNum -= 1; };
+      break;
+    case "next":
+      if (accessoryNum == 11) { accessoryNum = 1; }
+      else { accessoryNum += 1; }
+      break;
+  }
+
+  accessory.src = cwd + "/img/accessory" + accessoryNum + ".png";
+  accessory.onload = () => { buildAvatar(); }
 }

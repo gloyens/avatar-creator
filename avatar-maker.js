@@ -57,8 +57,15 @@ window.onload = () => { // This is an arrow function, rewritten from "window.onl
   accessory.onload = () => { buildAvatar(); }
 }
 
-function saveImage() {
-  localStorage.setItem("canvas", canvas.toDataURL());
+function saveImage(img) {
+  var dataURL = canvas.toDataURL("image/png");
+  var downloadLink = document.createElement('a');
+  downloadLink.href = dataURL;
+  downloadLink.download = 'avatar.png';
+
+  document.body.appendChild(downloadLink);
+  downloadLink.click();
+  document.body.removeChild(downloadLink);
 }
 
 function buildAvatar() {

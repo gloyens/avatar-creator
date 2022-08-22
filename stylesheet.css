@@ -48,6 +48,21 @@ button:hover {
   background-color: #F3F0F6;
 }
 
+#saveImage {
+  text-align: center;
+  font-family: Mitr, Helvetica, sans-serif;
+  margin: 10px auto;
+  width: 90%;
+  height: 50px;
+  background-color: #26a7ff;
+  color: white;
+  border-radius: 5px;
+}
+
+#saveImage:hover {
+  background-color: #0e8de3;
+}
+
 span
 {
   display: inline-block;
@@ -85,7 +100,7 @@ span
 
 #option-container {
   display: flex;
-  flex-grow: 2;
+  flex-grow: 1;
   flex-direction: column;
   padding: 0 20px;
 }
@@ -123,12 +138,12 @@ span
 	width: 64px;
   }
 
-span
-{
-  display: inline-block;
-  vertical-align: middle;
-  line-height: 32px;
-}
+  span
+  {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 32px;
+  }
 
   .flex-container {
     flex-direction: column;

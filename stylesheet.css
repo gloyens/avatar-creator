@@ -119,10 +119,17 @@ span
   }
 
   button {
-	height: 48px;
-	width: 48px;
+	height: 32px;
+	width: 64px;
   }
-  
+
+span
+{
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 32px;
+}
+
   .flex-container {
     flex-direction: column;
   }

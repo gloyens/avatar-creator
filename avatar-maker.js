@@ -138,11 +138,11 @@ function hairChange(direction) {
 function hairColourChange(direction) {
   switch(direction) {
     case "previous":
-      if (hairColourNum == 1) { hairColourNum = 5; }
+      if (hairColourNum == 1) { hairColourNum = 10; }
       else { hairColourNum -= 1; };
       break;
     case "next":
-      if (hairColourNum == 5) { hairColourNum = 1; }
+      if (hairColourNum == 10) { hairColourNum = 1; }
       else { hairColourNum += 1; }
       break;
   }
